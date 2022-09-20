@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="../dist/fetch.umd.min.js"></script>
+    </head>
+    <body>
+        <button class="btn">Test</button>
+        <p>Current IP: <span class="ip"></span></p>
+        <script>
+            const fetchApi = mfetch.create()
+            document.querySelector('.btn').addEventListener('click', () => {
+                fetchApi.interceptors.request.use(config => {
+                    config.url = config.url + (config.url.indexOf('?') > -1 ? `&time=${new Date().getTime()}` : '')
+                    return config
+                })
+
+                fetchApi.interceptors.response.use(async res => {
+                    return await res.json()
+                })
+
+                fetchApi.get('https://api.ipify.org?format=json').then(async res => {
+                    const { ip } = res
+                    document.querySelector('.ip').innerHTML = ip
+                })
+            })
+        </script>
+    </body>
+</html>
