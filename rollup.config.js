@@ -17,7 +17,7 @@ export default {
     ],
     output: [
         {
-            name: 'mfetch',
+            name: 'MonsterFetch',
             file: pkg.browser,
             format: 'umd',
         },

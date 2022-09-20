@@ -8,24 +8,21 @@
         <script src="../dist/fetch.umd.min.js"></script>
     </head>
     <body>
-        <button class="btn">Test</button>
         <p>Current IP: <span class="ip"></span></p>
         <script>
-            const fetchApi = mfetch.create()
-            document.querySelector('.btn').addEventListener('click', () => {
-                fetchApi.interceptors.request.use(config => {
-                    config.url = config.url + (config.url.indexOf('?') > -1 ? `&time=${new Date().getTime()}` : '')
-                    return config
-                })
+            const fetchApi = MonsterFetch.create()
+            fetchApi.interceptors.request.use(config => {
+                config.url = config.url + (config.url.indexOf('?') > -1 ? `&time=${new Date().getTime()}` : '')
+                return config
+            })
 
-                fetchApi.interceptors.response.use(async res => {
-                    return await res.json()
-                })
+            fetchApi.interceptors.response.use(async res => {
+                return await res.json()
+            })
 
-                fetchApi.get('https://api.ipify.org?format=json').then(async res => {
-                    const { ip } = res
-                    document.querySelector('.ip').innerHTML = ip
-                })
+            fetchApi.get('https://api.ipify.org?format=json').then(async res => {
+                const { ip } = res
+                document.querySelector('.ip').innerHTML = ip
             })
         </script>
     </body>

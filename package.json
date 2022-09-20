@@ -2,9 +2,9 @@
   "name": "monster-fetch",
   "version": "0.0.1",
   "description": "fetch package",
-  "module": "dist/fetch.esm.min.js",
-  "browser": "dist/fetch.umd.min.js",
-  "main": "dist/fetch.esm.min.js",
+  "module": "dist/esm/fetch.min.js",
+  "browser": "dist/fetch.min.js",
+  "main": "dist/fetch.min.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:Monster-2019/fetch.git"
