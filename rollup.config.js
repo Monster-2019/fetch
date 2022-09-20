@@ -6,12 +6,12 @@ import commonjs from '@rollup/plugin-commonjs';
 export default {
     input: 'lib/index.js',
     plugins: [
-        // terser({
-        //     ecma: "2015",
-        //     compress: {
-        //         drop_console: false
-        //     }
-        // }),
+        terser({
+            ecma: "2015",
+            compress: {
+                drop_console: true
+            }
+        }),
         resolve(),
         commonjs()
     ],

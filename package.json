@@ -1,5 +1,5 @@
 {
-  "name": "mfetch",
+  "name": "monster-fetch",
   "version": "0.0.1",
   "description": "fetch package",
   "module": "dist/fetch.esm.min.js",
