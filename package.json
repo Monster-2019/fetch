@@ -1,6 +1,6 @@
 {
   "name": "monster-fetch",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "fetch package",
   "module": "dist/esm/fetch.min.js",
   "browser": "dist/fetch.min.js",
